@@ -32,10 +32,7 @@ defmodule Common.ExponentialBackoff.CoordinatorSupervisor do
     )
   end
 
-  def start_link(opts, gen_server_options \\ []) do
-    IO.inspect(opts, label: "opts")
-    IO.inspect(gen_server_options, label: "gen_server_options")
-
+  def start_link(_opts, _gen_server_options \\ []) do
     block_interval = @block_interval
     minimum_interval = div(block_interval, 2)
     bound_interval = BoundInterval.within(minimum_interval..(minimum_interval * 10))
