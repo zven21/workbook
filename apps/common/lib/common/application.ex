@@ -8,6 +8,7 @@ defmodule Common.Application do
   @impl true
   def start(_type, _args) do
     children = [
+      Common.ExponentialBackoff.Supervisor
       # Starts a worker by calling: Common.Worker.start_link(arg)
       # {Common.Worker, arg}
     ]
